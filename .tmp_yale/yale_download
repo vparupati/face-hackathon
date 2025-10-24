@@ -1,0 +1,918 @@
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'html' -->
+<!-- FILE NAME SUGGESTIONS:
+   * html--node--174.html.twig
+   * html--node--%.html.twig
+   * html--node.html.twig
+   x html.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/html.html.twig' -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<link rel="icon" href="/core/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="https://vision.ucsd.edu/datasets/yale-face-database" />
+<link rel="shortlink" href="https://vision.ucsd.edu/node/174" />
+
+    <title>Yale Face Database | Vision</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_Sl4LRMNAKgKC73I4WttbKaFTfRNzrtOxiNi3J1AifR8.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_gL-lcyKD3m7iZ5YP__xQ63jRBXoOy0MOgpn22RtXuXs.css" />
+<link rel="stylesheet" media="all" href="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_6vCKdySF5DFDHkGBVFXtVvXFijqeyj0FgFltnmRiMfM.css" />
+<link rel="stylesheet" media="all" href="//use.fontawesome.com/releases/v5.13.0/css/all.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_y0ifvFTJn3OpgwHT5WKDDy7_cLBXaDbcecFM0yx9f2Y.css" />
+<link rel="stylesheet" media="print" href="/sites/default/files/css/css_Y4H_4BqmgyCtG7E7YdseTs2qvy9C34c51kBamDdgark.css" />
+
+    
+  </head>
+  <body class="layout-no-sidebars page-node-174 path-node node--type-dataset">
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'off_canvas_page_wrapper' -->
+<!-- BEGIN OUTPUT from 'core/modules/system/templates/off-canvas-page-wrapper.html.twig' -->
+  <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'page' -->
+<!-- FILE NAME SUGGESTIONS:
+   * page--node--dataset.html.twig
+   * page--node--174.html.twig
+   * page--node--%.html.twig
+   * page--node.html.twig
+   x page.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/vision_bs/templates/page.html.twig' -->
+<div id="page-wrapper">
+  <div id="page">
+    <header id="header" class="header" role="banner" aria-label="Site header">
+              <div class="container top_header">
+                  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   * region--top-header.html.twig
+   x region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+  <section class="row region region-top-header">
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--sitebranding-2.html.twig
+   x block--system-branding-block.html.twig
+   * block--system.html.twig
+   * block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-branding-block.html.twig' -->
+      <a href="/" title="Home" rel="home" class="navbar-brand">
+            Vision
+    </a>
+    
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-branding-block.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--sitebranding.html.twig
+   * block--block-content--a1fd27c0-0953-46d8-a9da-2f93b2840219.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-sitebranding" class="block block-block-content block-block-contenta1fd27c0-0953-46d8-a9da-2f93b2840219">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><a href="https://jacobsschool.ucsd.edu"><img alt="UCSD Jacobs School of Engineering" data-entity-type="" data-entity-uuid="" src="/sites/default/files/ucsd_blue_gold_logo.png" width="250px" /></a></p>
+</div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+  </section>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+
+
+                </div>
+                
+        <nav class="navbar navbar-expand-lg" id="navbar-main">
+                  <div class="container">
+           
+            
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   x region--nowrap.html.twig
+   * region--header.html.twig
+   * region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--navbartoggle.html.twig
+   * block--block-content--1e63384d-fb5a-4d52-8745-5079e5cab24b.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-navbartoggle" class="block block-block-content block-block-content1e63384d-fb5a-4d52-8745-5079e5cab24b">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button></div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+
+
+                                        <div class="collapse navbar-collapse justify-content-end w-100" id="CollapsingNavbar">
+                <div class="container">
+                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   x region--nowrap.html.twig
+   * region--primary-menu.html.twig
+   * region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--vision-bs-main-menu.html.twig
+   * block--system-menu-block--main.html.twig
+   x block--system-menu-block.html.twig
+   * block--system.html.twig
+   * block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-menu-block.html.twig' -->
+<nav role="navigation" aria-labelledby="block-vision-bs-main-menu-menu" id="block-vision-bs-main-menu" class="block block-menu navigation menu--main">
+            
+  <h2 class="sr-only" id="block-vision-bs-main-menu-menu">Main navigation</h2>
+  
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'menu__main' -->
+<!-- FILE NAME SUGGESTIONS:
+   x menu--main.html.twig
+   * menu--main--vision-bs-main-menu.html.twig
+   x menu--main.html.twig
+   * menu.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/menu--main.html.twig' -->
+
+              <ul block="block-vision-bs-main-menu" class="clearfix nav navbar-nav">
+                    <li class="nav-item">
+                          <a href="/people" class="nav-link nav-link--people" data-drupal-link-system-path="node/2">People</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/projects" class="nav-link nav-link--projects" data-drupal-link-system-path="node/3">Projects</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/datasets" class="nav-link nav-link--datasets" data-drupal-link-system-path="node/5">Datasets</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/publications" class="nav-link nav-link--publications" data-drupal-link-system-path="node/182">Publications</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/misc" class="nav-link nav-link--misc" data-drupal-link-system-path="node/730">Misc</a>
+              </li>
+        </ul>
+  
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/menu--main.html.twig' -->
+
+
+  </nav>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-menu-block.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--vision-bs-search-form-narrow.html.twig
+   x block--search-form-block.html.twig
+   * block--search.html.twig
+   * block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--search-form-block.html.twig' -->
+<div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-vision-bs-search-form-narrow" role="search">
+  
+    
+    <div class="content container-inline">
+        <div class="content container-inline">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form' -->
+<!-- FILE NAME SUGGESTIONS:
+   x form--search-block-form.html.twig
+   * form.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/form--search-block-form.html.twig' -->
+<form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form form-row">
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/form-element.html.twig' -->
+
+
+
+
+          <fieldset class="js-form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label form-group">
+          
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'form_element_label' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/form-element-label.html.twig' -->
+<label for="edit-keys" class="sr-only">Search</label>
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/form-element-label.html.twig' -->
+
+
+                    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__search' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--search.html.twig
+   x input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/input.html.twig' -->
+<input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search form-control" />
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/input.html.twig' -->
+
+
+                      </fieldset>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/form-element.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'container' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/container.html.twig' -->
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-group" id="edit-actions">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'input__submit' -->
+<!-- FILE NAME SUGGESTIONS:
+   * input--submit.html.twig
+   x input--submit-button.html.twig
+   * input.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/input--submit-button.html.twig' -->
+<button data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Search" class="button js-form-submit form-submit btn btn-primary">Search</button>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/input--submit-button.html.twig' -->
+
+</div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/form/container.html.twig' -->
+
+
+</form>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/form--search-block-form.html.twig' -->
+
+
+    </div>
+  
+  </div>
+</div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--search-form-block.html.twig' -->
+
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--searchbutton.html.twig
+   * block--block-content--4e113ce0-19a6-494a-b0a3-efcfe03f89f1.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-searchbutton" class="block block-block-content block-block-content4e113ce0-19a6-494a-b0a3-efcfe03f89f1">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><a aria-label="Search button" class="btn btn-blue show-search" href=""><i class="fas fa-search"><!-- --></i></a></p>
+</div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+
+
+                </div>
+                                <div class="navbar_bg"></div>
+	          </div>
+                                            </div>
+           
+        </nav>
+          </header>
+              <div class="highlighted">
+                <aside class="container-fluid section clearfix" role="complementary">
+          
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   x region--nowrap.html.twig
+   * region--highlighted.html.twig
+   * region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--vision-bs-messages.html.twig
+   x block--system-messages-block.html.twig
+   * block--system.html.twig
+   * block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'core/modules/system/templates/block--system-messages-block.html.twig' -->
+<div data-drupal-messages-fallback class="hidden"></div>
+
+<!-- END OUTPUT from 'core/modules/system/templates/block--system-messages-block.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+
+
+        </aside>
+      </div>
+            <div id="main-wrapper" class="layout-main-wrapper clearfix">
+              <div id="main" class="container">
+          
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   x region--nowrap.html.twig
+   * region--breadcrumb.html.twig
+   * region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--vision-bs-breadcrumbs.html.twig
+   * block--system-breadcrumb-block.html.twig
+   * block--system.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-vision-bs-breadcrumbs" class="block block-system block-system-breadcrumb-block">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'breadcrumb' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/breadcrumb.html.twig' -->
+
+
+  <nav role="navigation" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+          <a href="/">Home</a>
+        </li>
+                        <li class="breadcrumb-item">
+          <a href="/datasets">Datasets</a>
+        </li>
+              </ol>
+  </nav>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/breadcrumb.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+
+
+          <div class="row row-offcanvas row-offcanvas-left clearfix">
+              <main class="main-content col" id="content" role="main">
+                <section class="section">
+                  <a id="main-content" tabindex="-1"></a>
+                  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   x region--nowrap.html.twig
+   * region--content.html.twig
+   * region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--vision-bs-content.html.twig
+   * block--system-main-block.html.twig
+   * block--system.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-vision-bs-content" class="block block-system block-system-main-block">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'node' -->
+<!-- FILE NAME SUGGESTIONS:
+   * node--174--full.html.twig
+   * node--174.html.twig
+   * node--dataset--full.html.twig
+   x node--dataset.html.twig
+   * node--full.html.twig
+   * node.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/vision_bs/templates/node--dataset.html.twig' -->
+
+
+<article data-history-node-id="174" role="article" class="node node--type-dataset node--view-mode-full clearfix">
+  <header>
+    
+
+    
+      </header>
+  <div class="node__content clearfix">
+        <div class="row">
+            <div class="col-sm-3">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--node--field-project-photo--dataset.html.twig
+   * field--node--field-project-photo.html.twig
+   * field--node--dataset.html.twig
+   * field--field-project-photo.html.twig
+   * field--image.html.twig
+   x field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field.html.twig' -->
+
+            <div class="field field--name-field-project-photo field--type-image field--label-hidden field__item">
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_formatter' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image-formatter.html.twig' -->
+  
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image_style' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image-style.html.twig' -->
+
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'image' -->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image.html.twig' -->
+<img loading="lazy" src="/sites/default/files/styles/large/public/datasets/imgs/face_base.jpg?itok=yETdSKL3" width="120" height="120" alt="Yale Face Database" class="image-style-large" />
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image-style.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/image-formatter.html.twig' -->
+
+</div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field.html.twig' -->
+
+
+      </div>
+            <div class="col-sm-8">
+        <h1>Yale Face Database</h1>
+                    <h5>Related Project(s)</h5>
+      <em>
+        <ul>
+                        <li><a href="/projects/doppelganger-list-comparison" hreflang="en">Doppelgänger List Comparison</a></li>
+                        <li><a href="/projects/face-recognition" hreflang="en">Face Recognition</a></li>
+                    </ul>
+        </em>
+         
+      </div>
+      </div>
+       <br/>
+     <div class="row">
+      <div class="col-sm-12">      
+             <h3>Synopsis</h3>
+       
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--node--body--dataset.html.twig
+   * field--node--body.html.twig
+   * field--node--dataset.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>The Yale Face Database (size 6.4MB) contains 165 grayscale images in GIF format of 15 individuals. There are 11 images per subject, one per different facial expression or configuration: center-light, w/glasses, happy, left-light, w/no glasses, normal, right-light, sad, sleepy, surprised, and wink.</p></div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+          
+            <h3>Project Details</h3>
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--node--field-project-details--dataset.html.twig
+   * field--node--field-project-details.html.twig
+   * field--node--dataset.html.twig
+   * field--field-project-details.html.twig
+   x field--text-long.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-long.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-field-project-details field--type-text-long field--label-hidden field__item"><p>More information at:  <br /><a href="https://datarepo.eng.ucsd.edu/visiondata/iskwak/public_html/ExtYaleDatabase/"><strong>https://datarepo.eng.ucsd.edu/visiondata/iskwak/public_html/ExtYaleDatabase/</strong></a></p></div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-long.html.twig' -->
+
+
+      </div>
+          </div>
+ </div>
+</article>
+
+<!-- END OUTPUT from 'themes/contrib/vision_bs/templates/node--dataset.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region--nowrap.html.twig' -->
+
+
+                </section>
+              </main>
+                                  </div>
+        </div>
+          </div>
+        <footer class="site-footer">
+              <div class="container">
+                      <div class="site-footer__top clearfix row">
+              <div class="col-md-3">
+                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   * region--footer-first.html.twig
+   x region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+  <section class="row region region-footer-first">
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--mainnavigation.html.twig
+   * block--system-menu-block--main.html.twig
+   x block--system-menu-block.html.twig
+   * block--system.html.twig
+   * block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-menu-block.html.twig' -->
+<nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="block block-menu navigation menu--main">
+      
+  <h2 id="block-mainnavigation-menu">Menu</h2>
+  
+
+        
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'menu__main' -->
+<!-- FILE NAME SUGGESTIONS:
+   x menu--main.html.twig
+   * menu--main--mainnavigation.html.twig
+   x menu--main.html.twig
+   * menu.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/menu--main.html.twig' -->
+
+              <ul block="block-mainnavigation" class="clearfix nav navbar-nav">
+                    <li class="nav-item">
+                          <a href="/people" class="nav-link nav-link--people" data-drupal-link-system-path="node/2">People</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/projects" class="nav-link nav-link--projects" data-drupal-link-system-path="node/3">Projects</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/datasets" class="nav-link nav-link--datasets" data-drupal-link-system-path="node/5">Datasets</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/publications" class="nav-link nav-link--publications" data-drupal-link-system-path="node/182">Publications</a>
+              </li>
+                <li class="nav-item">
+                          <a href="/misc" class="nav-link nav-link--misc" data-drupal-link-system-path="node/730">Misc</a>
+              </li>
+        </ul>
+  
+
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/navigation/menu--main.html.twig' -->
+
+
+  </nav>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block--system-menu-block.html.twig' -->
+
+
+  </section>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+
+
+              </div>
+              <div class="col-md-3">
+                
+              </div>
+              <div class="col-md-3">
+                
+              </div>
+              <div class="col-md-3">
+                
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   * region--footer-fourth.html.twig
+   x region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+  <section class="row region region-footer-fourth">
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--jsoeecefooterlogo.html.twig
+   * block--block-content--0a2a7549-12a8-4cae-80cf-f0058747e96a.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-jsoeecefooterlogo" class="block block-block-content block-block-content0a2a7549-12a8-4cae-80cf-f0058747e96a">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><img class="footer-logo" alt="JSOE Electrical and Computer Engineering Department" data-entity-type="" data-entity-uuid="" src="/sites/default/files/logos/UCSDLogo-JSOE-ElectricalandComputerEngineering-White.png" /></p>
+</div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+  </section>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+
+
+              </div>
+            </div>
+                              
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'region' -->
+<!-- FILE NAME SUGGESTIONS:
+   * region--footer-end.html.twig
+   x region.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+  <section class="region region-footer-end">
+    
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'block' -->
+<!-- FILE NAME SUGGESTIONS:
+   * block--copyrightandprivacylinks.html.twig
+   * block--block-content--c30fab3c-607f-40c9-9392-0dcbfd55807c.html.twig
+   * block--block-content.html.twig
+   * block--block-content.html.twig
+   x block.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+<div id="block-copyrightandprivacylinks" class="block block-block-content block-block-contentc30fab3c-607f-40c9-9392-0dcbfd55807c">
+  
+    
+      <div class="content">
+      
+
+<!-- THEME DEBUG -->
+<!-- THEME HOOK: 'field' -->
+<!-- FILE NAME SUGGESTIONS:
+   * field--block-content--body--basic.html.twig
+   * field--block-content--body.html.twig
+   * field--block-content--basic.html.twig
+   * field--body.html.twig
+   x field--text-with-summary.html.twig
+   * field.html.twig
+-->
+<!-- BEGIN OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+            <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="col-xs-12">
+<div class="text-align-center">© <script>
+<!--//--><![CDATA[// ><!--
+document.write(new Date().getFullYear())
+//--><!]]>
+</script> Regents of the University of California. All rights reserved. | <a class="terms-link" data-h2="useful links and resources" data-h3="resourcescommunitysocial media links" data-module="footer" href="https://accessibility.ucsd.edu/report-a-concern/index.html" target="_blank">Accessibility</a> | <a href="https://ucsd.edu/about/privacy-policy.html" target="_blank">Privacy</a> | <a href="https://ucsd.edu/about/terms-of-use.html" target="_blank">Terms of Use</a></div>
+</div>
+</div>
+      
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/field/field--text-with-summary.html.twig' -->
+
+
+    </div>
+  </div>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/block/block.html.twig' -->
+
+
+  </section>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/region.html.twig' -->
+
+            
+                  </div>
+          </footer>
+  </div>
+</div>
+
+<!-- END OUTPUT from 'themes/contrib/vision_bs/templates/page.html.twig' -->
+
+
+  </div>
+
+<!-- END OUTPUT from 'core/modules/system/templates/off-canvas-page-wrapper.html.twig' -->
+
+
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/174","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxTrustedUrl":{"\/search\/node":true},"user":{"uid":0,"permissionsHash":"56480262d423504f41544eefde76a4c418c3c4876395de67411db1e7536e415d"}}</script>
+<script src="/sites/default/files/js/js_NNbPecVpVa6cpIgaF-KL1iuYhFiadOBGF8zFORHbznU.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="/sites/default/files/js/js_H1O1iPsAxVn1YTnj6l3WACzCVfiVOPhwDH8n42P-kTA.js"></script>
+
+  </body>
+</html>
+
+<!-- END OUTPUT from 'themes/contrib/bootstrap_barrio/templates/layout/html.html.twig' -->
+

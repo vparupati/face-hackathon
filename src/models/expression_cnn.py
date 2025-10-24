@@ -10,27 +10,47 @@ import torch.nn as nn
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
 
-def train_model(data_dir: str, out_path: str, epochs: int = 10, img_size: int = 160, batch: int = 32, lr: float = 1e-3):
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+from .c3_expression import C3ExpressionCNN, C3ExpressionTrainer
+
+def train_model(data_dir: str, out_path: str, epochs: int = 10, img_size: int = 160, batch: int = 32, lr: float = 1e-3, model_type: str = "mobilenet"):
+    device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
+    print(f"Using device: {device}")
 
     tf_train = transforms.Compose([
         transforms.Resize((img_size,img_size)),
         transforms.RandomHorizontalFlip(),
         transforms.ColorJitter(0.1,0.1,0.1,0.05),
         transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    tf_val = transforms.Compose([transforms.Resize((img_size,img_size)), transforms.ToTensor()])
+    tf_val = transforms.Compose([
+        transforms.Resize((img_size,img_size)), 
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+    ])
 
-    train_ds = datasets.ImageFolder(os.path.join(data_dir), transform=tf_train)
-    val_ds = datasets.ImageFolder(os.path.join(data_dir), transform=tf_val)  # simple split: reuse for brevity
+    train_ds = datasets.ImageFolder(os.path.join(data_dir, "train"), transform=tf_train)
+    val_ds = datasets.ImageFolder(os.path.join(data_dir, "test"), transform=tf_val)
 
     train_ld = DataLoader(train_ds, batch_size=batch, shuffle=True, num_workers=2)
     val_ld = DataLoader(val_ds, batch_size=batch, shuffle=False, num_workers=2)
 
-    model = models.mobilenet_v2(weights=None)
-    in_feat = model.classifier[1].in_features
     num_classes = len(train_ds.classes)
-    model.classifier[1] = nn.Linear(in_feat, num_classes)
+    print(f"Number of classes: {num_classes}")
+    print(f"Class names: {train_ds.classes}")
+
+    # Create model based on type
+    if model_type == "c3":
+        model = C3ExpressionCNN(num_classes=num_classes, input_size=img_size)
+        print(f"Using C3 Expression CNN with {sum(p.numel() for p in model.parameters() if p.requires_grad):,} parameters")
+    elif model_type == "mobilenet":
+        model = models.mobilenet_v2(weights=None)
+        in_feat = model.classifier[1].in_features
+        model.classifier[1] = nn.Linear(in_feat, num_classes)
+        print(f"Using MobileNetV2 with {sum(p.numel() for p in model.parameters() if p.requires_grad):,} parameters")
+    else:
+        raise ValueError(f"Unknown model type: {model_type}")
+
     model.to(device)
 
     opt = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
@@ -77,15 +97,16 @@ def train_model(data_dir: str, out_path: str, epochs: int = 10, img_size: int = 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", required=True, help="Root with <person>/<expression> subfolders (classes = expressions)")
-    ap.add_argument("--epochs", type=int, default=10)
+    ap.add_argument("--data", required=True, help="Root with train/test subfolders containing expression classes")
+    ap.add_argument("--epochs", type=int, default=20)
     ap.add_argument("--out", default="models/expressions.onnx")
     ap.add_argument("--img", type=int, default=160)
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--lr", type=float, default=1e-3)
+    ap.add_argument("--model", choices=["c3", "mobilenet"], default="c3", help="Model architecture to use")
     args = ap.parse_args()
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
-    train_model(args.data, args.out, epochs=args.epochs, img_size=args.img, batch=args.batch, lr=args.lr)
+    train_model(args.data, args.out, epochs=args.epochs, img_size=args.img, batch=args.batch, lr=args.lr, model_type=args.model)
 
 if __name__ == "__main__":
     main()

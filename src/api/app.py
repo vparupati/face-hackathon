@@ -24,6 +24,7 @@ IMG_SIZE = 160
 tf_basic = transforms.Compose([
     transforms.Resize((IMG_SIZE, IMG_SIZE)),
     transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
 def read_image(file: UploadFile) -> Image.Image:
@@ -32,17 +33,32 @@ def read_image(file: UploadFile) -> Image.Image:
 def load_encoder_pt():
     global _encoder_pt
     if _encoder_pt is None:
-        path = os.environ.get("SIAMESE_ENCODER_PT", "models/siamese_encoder.pt")
+        path = os.environ.get("SIAMESE_ENCODER_PT", "models/siamese_encoder_v2.pt")
         model = Encoder()
         if os.path.exists(path):
             try:
-                model.load_state_dict(torch.load(path, map_location="cpu"))
+                # Use MPS on Mac, CUDA on NVIDIA, or CPU
+                if torch.cuda.is_available():
+                    map_location = "cuda"
+                elif torch.backends.mps.is_available():
+                    map_location = "mps"
+                else:
+                    map_location = "cpu"
+                model.load_state_dict(torch.load(path, map_location=map_location))
                 print(f"Loaded Siamese encoder from {path}")
             except Exception as e:
                 print(f"Warning: Failed to load Siamese encoder from {path}: {e}")
                 print("Using untrained model")
         else:
             print(f"Warning: Siamese encoder not found at {path}, using untrained model")
+        # Move model to appropriate device
+        if torch.cuda.is_available():
+            device = "cuda"
+        elif torch.backends.mps.is_available():
+            device = "mps"
+        else:
+            device = "cpu"
+        model.to(device)
         model.eval()
         _encoder_pt = model
     return _encoder_pt
@@ -85,17 +101,38 @@ def health():
 def similarity(image_a: UploadFile = File(...), image_b: UploadFile = File(...)):
     try:
         model = load_encoder_pt()
-        ia = tf_basic(read_image(image_a)).unsqueeze(0)
-        ib = tf_basic(read_image(image_b)).unsqueeze(0)
+        
+        # Move tensors to the same device as the model
+        device = next(model.parameters()).device
+        ia = tf_basic(read_image(image_a)).unsqueeze(0).to(device)
+        ib = tf_basic(read_image(image_b)).unsqueeze(0).to(device)
+        
         with torch.no_grad():
             za = model(ia)
             zb = model(ib)
-            dist = torch.sqrt(((za - zb)**2).sum(dim=1)).item()
-        # Convert distance to similarity score in [0,1] with a simple mapping
-        score = float(np.exp(-dist))
-        verdict = "similar" if score >= 0.6 else "dissimilar"  # threshold can be tuned from eval report
+            
+            # Debug: Check embedding norms
+            norm_a = torch.norm(za).item()
+            norm_b = torch.norm(zb).item()
+            print(f"Embedding norms - A: {norm_a:.4f}, B: {norm_b:.4f}")
+            
+            # Use cosine similarity instead of euclidean distance
+            # Cosine similarity ranges from -1 to 1, higher is more similar
+            cos_sim = torch.nn.functional.cosine_similarity(za, zb, dim=1).item()
+            print(f"Cosine similarity: {cos_sim:.4f}")
+            
+            # Convert cosine similarity to distance (0 to 2, lower is more similar)
+            dist = 1 - cos_sim
+            
+            # Use cosine similarity as the score (0 to 1, higher is more similar)
+            score = (cos_sim + 1) / 2  # Convert from [-1,1] to [0,1]
+        
+        # Use a more strict threshold for cosine similarity
+        # 0.85+ cosine similarity = very similar faces only
+        verdict = "similar" if cos_sim >= 0.85 else "dissimilar"
         return {"score": score, "verdict": verdict, "distance": float(dist)}
     except Exception as e:
+        print(f"Error in similarity endpoint: {str(e)}")
         return {"error": f"Failed to process similarity: {str(e)}"}
 
 @app.post("/recognize")
@@ -105,9 +142,11 @@ def recognize(image: UploadFile = File(...)):
         recog = load_recognizer()
         if recog is None:
             return {"error": "Recognizer not found. Train and save to models/recognizer.joblib"}
-        x = tf_basic(read_image(image)).unsqueeze(0)
+        # Move tensor to the same device as the model
+        device = next(model.parameters()).device
+        x = tf_basic(read_image(image)).unsqueeze(0).to(device)
         with torch.no_grad():
-            z = model(x).numpy()
+            z = model(x).cpu().numpy()
         pred = recog["model"].predict(z)[0]
         # Confidence proxy using kNN distance or SVM decision function
         conf = 0.5
@@ -115,9 +154,17 @@ def recognize(image: UploadFile = File(...)):
             if recog["type"] == "knn":
                 d, idx = recog["model"].kneighbors(z, n_neighbors=1, return_distance=True)
                 conf = float(np.exp(-d[0][0]))
+                # If distance is too high, mark as unknown
+                if d[0][0] > 0.5:  # Threshold for "unknown" face
+                    pred = "Unknown"
+                    conf = 0.1
             else:
                 df = recog["model"].decision_function(z)
                 conf = float(1/(1+np.exp(-np.max(df))))
+                # If decision function is too low, mark as unknown
+                if np.max(df) < 0.5:
+                    pred = "Unknown"
+                    conf = 0.1
         except Exception:
             pass
         return {"label": str(pred), "confidence": conf}

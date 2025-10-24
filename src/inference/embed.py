@@ -18,13 +18,14 @@ class FolderDataset(Dataset):
         for ci, c in enumerate(classes):
             cdir = os.path.join(root, c)
             for p in glob.glob(os.path.join(cdir, "*")):
-                if p.lower().endswith((".jpg",".jpeg",".png",".bmp")):
+                if p.lower().endswith((".jpg",".jpeg",".png",".bmp",".pgm")):
                     self.samples.append(p)
                     self.labels.append(c)
                     self.paths.append(p)
         self.tf = transforms.Compose([
             transforms.Resize((img_size,img_size)),
             transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
 
     def __len__(self): return len(self.samples)

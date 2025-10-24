@@ -12,6 +12,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms, models
 
 from sklearn.metrics import roc_curve, auc
+from .c3_cnn import C3CNN, C3SiameseEncoder
 
 # --- Dataset that yields positive/negative pairs from a folder-of-folders (class per subfolder) ---
 class PairDataset(Dataset):
@@ -22,7 +23,7 @@ class PairDataset(Dataset):
         self.rng = random.Random(seed)
 
         classes = sorted([p for p in self.root.iterdir() if p.is_dir()])
-        self.class_to_imgs = {c.name: sorted([str(x) for x in c.glob("*") if x.suffix.lower() in (".jpg",".jpeg",".png",".bmp")]) for c in classes}
+        self.class_to_imgs = {c.name: sorted([str(x) for x in c.glob("*") if x.suffix.lower() in (".jpg",".jpeg",".png",".bmp",".pgm")]) for c in classes}
         self.classes = [c for c, imgs in self.class_to_imgs.items() if len(imgs) >= 2]
 
         # Split each class into train/val
@@ -53,10 +54,21 @@ class PairDataset(Dataset):
                 b = self.rng.choice(self.split_paths[cc2][split])
                 self.pairs.append((a, b, 0))
 
-        self.tf = transforms.Compose([
-            transforms.Resize((img_size, img_size)),
-            transforms.ToTensor(),
-        ])
+        # Add data augmentation for better robustness
+        if split == "train":
+            self.tf = transforms.Compose([
+                transforms.Resize((img_size, img_size)),
+                transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+                transforms.RandomRotation(5),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+            ])
+        else:
+            self.tf = transforms.Compose([
+                transforms.Resize((img_size, img_size)),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+            ])
 
     def __len__(self):
         return len(self.pairs)
@@ -67,17 +79,27 @@ class PairDataset(Dataset):
         ib = self.tf(Image.open(b).convert("RGB"))
         return ia, ib, torch.tensor([y], dtype=torch.float32)
 
-# --- Simple encoder (can be replaced by ResNet18 backbone) ---
+# --- Simple encoder (can be replaced by ResNet18 backbone or C3 CNN) ---
 class Encoder(nn.Module):
-    def __init__(self, embedding_dim: int = 128):
+    def __init__(self, embedding_dim: int = 128, backbone: str = "resnet18"):
         super().__init__()
-        self.backbone = models.resnet18(weights=None)
-        in_features = self.backbone.fc.in_features
-        self.backbone.fc = nn.Linear(in_features, embedding_dim)
+        self.backbone_type = backbone
+        
+        if backbone == "c3":
+            self.backbone = C3CNN(embedding_dim=embedding_dim)
+        elif backbone == "resnet18":
+            self.backbone = models.resnet18(weights=None)
+            in_features = self.backbone.fc.in_features
+            self.backbone.fc = nn.Linear(in_features, embedding_dim)
+        else:
+            raise ValueError(f"Unknown backbone: {backbone}")
 
     def forward(self, x):
-        z = self.backbone(x)
-        z = F.normalize(z, p=2, dim=1)  # L2 norm
+        if self.backbone_type == "c3":
+            z = self.backbone(x)  # C3CNN already includes L2 normalization
+        else:
+            z = self.backbone(x)
+            z = F.normalize(z, p=2, dim=1)  # L2 norm for ResNet18
         return z
 
 def contrastive_loss(distances, labels, margin=0.5):
@@ -137,15 +159,28 @@ def main():
     ap.add_argument("--onnx", default="models/siamese_encoder.onnx")
     ap.add_argument("--eval", action="store_true", help="Run evaluation only")
     ap.add_argument("--report", default="reports/siamese_eval.json")
+    ap.add_argument("--backbone", choices=["resnet18", "c3"], default="resnet18", help="Backbone architecture")
     args = ap.parse_args()
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # Use MPS (Metal Performance Shaders) on Mac, CUDA on NVIDIA GPUs, or CPU
+    if torch.cuda.is_available():
+        device = "cuda"
+    elif torch.backends.mps.is_available():
+        device = "mps"
+    else:
+        device = "cpu"
+    print(f"Using device: {device}")
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     os.makedirs(os.path.dirname(args.onnx), exist_ok=True)
     os.makedirs(os.path.dirname(args.report), exist_ok=True)
 
-    model = Encoder()
+    model = Encoder(backbone=args.backbone)
     model.to(device)
+    
+    # Print model info
+    total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Using backbone: {args.backbone}")
+    print(f"Total trainable parameters: {total_params:,}")
 
     if args.eval:
         assert args.encoder, "--encoder required for --eval"

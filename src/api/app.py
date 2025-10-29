@@ -20,11 +20,19 @@ _recognizer = None
 _expr_session = None
 
 IMG_SIZE = 160
+EXPR_IMG_SIZE = 100  # RAF-DB model uses 100x100 RGB
 
 tf_basic = transforms.Compose([
     transforms.Resize((IMG_SIZE, IMG_SIZE)),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# Transform for RAF-DB expression model (100x100 RGB)
+tf_expr = transforms.Compose([
+    transforms.Resize((EXPR_IMG_SIZE, EXPR_IMG_SIZE)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # ImageNet normalization
 ])
 
 def read_image(file: UploadFile) -> Image.Image:
@@ -66,11 +74,12 @@ def load_encoder_pt():
 def load_expr_onnx():
     global _expr_session
     if _expr_session is None:
-        path = os.environ.get("EXPRESSIONS_ONNX", "models/expressions.onnx")
+        # Use the active RAF-DB model (versioned)
+        path = os.environ.get("EXPRESSIONS_ONNX", "models/rafdb_expressions_active.onnx")
         if os.path.exists(path):
             try:
                 _expr_session = ort.InferenceSession(path, providers=["CPUExecutionProvider"])
-                print(f"Loaded expression model from {path}")
+                print(f"Loaded RAF-DB expression model from {path} (Latest v20251025)")
             except Exception as e:
                 print(f"Warning: Failed to load expression model from {path}: {e}")
                 _expr_session = None
@@ -176,18 +185,28 @@ def expression(image: UploadFile = File(...)):
     try:
         sess = load_expr_onnx()
         if sess is None:
-            return {"error": "Expression ONNX not found. Train and save to models/expressions.onnx"}
-        img = tf_basic(read_image(image)).unsqueeze(0).numpy()
+            return {"error": "Expression ONNX not found. Train and save to models/resnet_expressions.onnx"}
+        
+        # Use RAF-DB specific transform (100x100 RGB)
+        img = tf_expr(read_image(image)).unsqueeze(0).numpy()
         logits = sess.run(None, {"image": img})[0]
         probs = np.exp(logits - logits.max(axis=1, keepdims=True))
         probs = probs / probs.sum(axis=1, keepdims=True)
         idx = int(np.argmax(probs, axis=1)[0])
-        classes_path = os.environ.get("EXPRESSIONS_CLASSES", "models/expressions.classes.txt")
+        
+        # Load RAF-DB classes
+        classes_path = os.environ.get("EXPRESSIONS_CLASSES", "models/rafdb_expressions_active.classes.txt")
         if os.path.exists(classes_path):
             with open(classes_path, "r") as f:
                 classes = [l.strip() for l in f if l.strip()]
         else:
             classes = [f"class_{i}" for i in range(probs.shape[1])]
-        return {"expression": classes[idx], "probs": {classes[i]: float(probs[0,i]) for i in range(len(classes))}}
+        
+        return {
+            "expression": classes[idx], 
+            "confidence": float(probs[0, idx]),
+            "probs": {classes[i]: float(probs[0,i]) for i in range(len(classes))},
+            "model": "ResNet18 RAF-DB v20251025 (Latest)"
+        }
     except Exception as e:
         return {"error": f"Failed to process expression: {str(e)}"}
